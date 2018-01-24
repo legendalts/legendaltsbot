@@ -47,6 +47,10 @@ client.on('message', msg => {
     const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     const args = msg.content.split(' ').slice(1).join(' ');
     if (command === 'getalt') return msg.channel.send(getRandomLine());
+    if (command === 'getalt') {
+      msg.channel.send("Check your PM " + message.author);
+      message.author.sendMessage(getRandomLine())
+    }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
 
