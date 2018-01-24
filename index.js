@@ -31,7 +31,7 @@ stream.on("data", function(chunk) {
 });
 
 client.on('ready', () => {
-    client.user.setActivity(lines + ' alts', {type: 'PLAYING'});
+    client.user.setActivity(lines + ' alts' + ' | BETA BOT', {type: 'PLAYING'});
 });
 
 client.on('message', msg => {
