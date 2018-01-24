@@ -39,8 +39,9 @@ client.on('message', msg => {
     const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     const args = msg.content.split(' ').slice(1).join(' ');
     if (command === 'help') {
-      msg.channel.send('=== LegendAlts Bot by the LegendAlts developers.');
+      msg.channel.send('=== LegendAlts Bot by the LegendAlts developers. ===');
       msg.channel.send('Use !getalt');
+      msg.channel.send('=====================================================');
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
