@@ -30,7 +30,7 @@ stream.on("data", function(chunk) {
 });
 
 client.on('ready', () => {
-    client.user.setActivity(lines + ' alts' + ' | !help', {type: 'PLAYING'});
+    client.user.setActivity(lines + ' alts' + ' | !getalt', {type: 'PLAYING'});
 });
 
 client.on('message', msg => {
