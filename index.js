@@ -11,17 +11,27 @@ fs.readFile('alts.txt', 'utf8', function (err,rawData) {
   }
   data = rawData.split('\n');
 });
-
 function randomInt (low, high) {
     return Math.floor(Math.random() * (high - low) + low);
 }
-
 function getRandomLine(){
   return data[randomInt(0,data.length)];
 }
 
+var lines = 0;
+//Using the first argument as the filename
+var filename = "alts.txt";
+var stream = fs.createReadStream(filename)
+//When data is received, check all the character codes and
+//if we find a carriage return, increment the line counter
+stream.on("data", function(chunk) {
+    for(var i = 0; i < chunk.length; i++) {
+        if (chunk[i] == 10 || chunk[i] == 13) lines++;
+    }
+});
+
 client.on('ready', () => {
-    client.user.setActivity('0 alts', {type: 'PLAYING'});
+    client.user.setActivity(lines + ' alts', {type: 'PLAYING'});
 });
 
 client.on('message', msg => {
