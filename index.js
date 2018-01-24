@@ -62,7 +62,7 @@ client.on('message', msg => {
 function commandTimeout(msg) {
   const now = new Date();
   if (typeof lastGetaltCommandDate === 'undefined') {
-	  lastGetaltCommandDate = now;
+	  lastGetaltCommandDate = now + 1 * 60 * 1000;
   }
   if (now - lastGetaltCommandDate > 1 * 60 * 1000) {
     // It's been more than 1 mins
