@@ -51,33 +51,14 @@ client.on('message', msg => {
     const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     const args = msg.content.split(' ').slice(1).join(' ');
     if (command === 'getalt') {
-	  commandTimeout(msg);
+	   msg.channel.send("Check your PM " + msg.author);
+       msg.author.send(':arrow_down: :regional_indicator_a: :regional_indicator_l: :regional_indicator_t: :arrow_down: \n' + getRandomLine() + '\n :regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y: \n :heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
       //msg.author.send(getRandomLine());
       //msg.author.send(':regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y:');
       //msg.author.send(':heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
-
-function commandTimeout(msg) {
-  const now = new Date();
-  if (typeof lastGetaltCommandDate === 'undefined') {
-	  lastGetaltCommandDate = now + 1 * 60 * 1000;
-  }
-  if (now - lastGetaltCommandDate > 1 * 60 * 1000) {
-    // It's been more than 1 mins
-    msg.channel.send("Check your PM " + msg.author);
-    msg.author.send(':arrow_down: :regional_indicator_a: :regional_indicator_l: :regional_indicator_t: :arrow_down: \n' + getRandomLine() + '\n :regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y: \n :heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
-    lastGetaltCommandDate = now;
-    lastGetaltCommandUser = msg.sender;
-  } else {
-    // It's been less than 10 mins
-    // send a direct message to the user
-    // i don't know if message.sender exists, check the api
-	msg.channel.send("Please wait 1 minute before getting another alt. - " + msg.author);
-    msg.author.send("You have to wait 1 minute before getting another alt.");
-  }
-}
 
 client.on('message', function(message) {
     if (message.content == "!clear") {
