@@ -31,7 +31,7 @@ stream.on("data", function(chunk) {
 });
 
 client.on('ready', () => {
-    client.user.setActivity(lines + ' alts' + ' | BETA BOT 1', {type: 'PLAYING'});
+    client.user.setActivity(lines + ' alts' + ' | BETA BOT 2', {type: 'PLAYING'});
 });
 
 client.on('message', msg => {
@@ -47,8 +47,8 @@ client.on('message', msg => {
     const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     const args = msg.content.split(' ').slice(1).join(' ');
     if (command === 'getalt') {
-      return msg.channel.send("Check your PM " + msg.author);
-      return message.author.sendMessage(getRandomLine());
+      msg.channel.send("Check your PM " + msg.author);
+      return client.sendMessage(msg.author, getRandomLine());
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
