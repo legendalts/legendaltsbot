@@ -49,7 +49,7 @@ client.on('message', msg => {
     if (command === 'getalt') return msg.channel.send(getRandomLine());
     if (command === 'getalt') {
       return msg.channel.send("Check your PM " + message.author);
-      return msg.author.sendMessage(getRandomLine());
+      return msg.sendMessage(message.author, (getRandomLine());
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
