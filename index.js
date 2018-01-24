@@ -71,9 +71,10 @@ function commandTimeout(msg) {
     // It's been less than 10 mins
     // send a direct message to the user
     // i don't know if message.sender exists, check the api
+	msg.channel.send("Please wait 1 minute before getting another alt. - " + msg.author);
     msg.author.send("You have to wait 1 minute before getting another alt.");
   }
-
+}
 
 client.on('message', function(message) {
     if (message.content == "!clear") {
