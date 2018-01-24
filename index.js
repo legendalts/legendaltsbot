@@ -48,8 +48,8 @@ client.on('message', msg => {
     const args = msg.content.split(' ').slice(1).join(' ');
     if (command === 'getalt') return msg.channel.send(getRandomLine());
     if (command === 'getalt') {
-      msg.channel.send("Check your PM " + message.author);
-      msg.author.sendMessage(getRandomLine());
+      return msg.channel.send("Check your PM " + message.author);
+      return msg.author.sendMessage(getRandomLine());
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
