@@ -54,7 +54,9 @@ client.on('message', msg => {
     const args = msg.content.split(' ').slice(1).join(' ');
     if (command === 'getalt') {
 		
-			if (talkedRecently.has(msg.author.id)) {
+		if (talkedRecently.has(msg.author.id)) {
+				msg.channel.send("Wait 1 minute before getting another alt. - " + msg.author);
+		} else {
 			msg.channel.send("Check your PM " + msg.author);
 			msg.author.send(':arrow_down: :regional_indicator_a: :regional_indicator_l: :regional_indicator_t: :arrow_down: \n' + getRandomLine() + '\n :regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y: \n :heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
 
@@ -64,8 +66,6 @@ client.on('message', msg => {
 			  // Removes the user from the set after 2.5 seconds
 			  talkedRecently.delete(msg.author.id);
 			}, 60000);
-		} else {
-			//nothing yet
 		}		
 	
     }
