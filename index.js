@@ -31,14 +31,17 @@ stream.on("data", function(chunk) {
 });
 
 client.on('ready', () => {
-    client.user.setActivity(lines + ' alts' + ' | BETA BOT 2', {type: 'PLAYING'});
+    client.user.setActivity(lines + ' alts' + ' | !help', {type: 'PLAYING'});
 });
 
 client.on('message', msg => {
     if (!msg.content.startsWith(process.env.PREFIX) || !msg.guild) return;
     const command = msg.content.split(' ')[0].substr(process.env.PREFIX.length);
     const args = msg.content.split(' ').slice(1).join(' ');
-    if (command === 'guide') return msg.channel.send('Type !getalt to get your alt.');
+    if (command === 'help') {
+      msg.channel.send('=== LegendAlts Bot by the LegendAlts developers.');
+      msg.channel.send('Use !getalt');
+    }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
 
