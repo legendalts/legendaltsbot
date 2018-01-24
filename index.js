@@ -51,10 +51,10 @@ client.on('message', msg => {
     const args = msg.content.split(' ').slice(1).join(' ');
     if (command === 'getalt') {
       msg.channel.send("Check your PM " + msg.author);
-      msg.author.send(':arrow_down: :regional_indicator_a: :regional_indicator_l: :regional_indicator_t: :arrow_down:');
-      msg.author.send(getRandomLine());
-      msg.author.send(':regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y:');
-      msg.author.send(':heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
+      msg.author.send(':arrow_down: :regional_indicator_a: :regional_indicator_l: :regional_indicator_t: :arrow_down: \n' + getRandomLine() + '\n :regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y: \n :heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
+      //msg.author.send(getRandomLine());
+      //msg.author.send(':regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y:');
+      //msg.author.send(':heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
