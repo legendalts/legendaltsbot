@@ -41,7 +41,7 @@ client.on('message', msg => {
     if (command === 'help') {
       msg.channel.send('=== LegendAlts Bot by the LegendAlts developers. ===');
       msg.channel.send('Use !getalt');
-      msg.channel.send('=====================================================');
+      msg.channel.send('===============================================');
     }
     else if (command === 'invite') return msg.channel.send(process.env.INVITE);
 });
