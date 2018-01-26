@@ -60,7 +60,8 @@ client.on('message', msg => {
 		} else {
 			msg.channel.send("Check your PM " + msg.author);
 			msg.author.send(':arrow_down: :regional_indicator_a: :regional_indicator_l: :regional_indicator_t: :arrow_down: \n' + getRandomLine() + '\n :regional_indicator_e: :regional_indicator_n: :regional_indicator_j: :regional_indicator_o: :regional_indicator_y: \n :heart_decoration: :heart: :heart_decoration: :heart: :heart_decoration:');
-
+			msg.channel.send("***We are getting new alts so soon ...***");
+			
 			// Adds the user to the set so that they can't talk for 2.5 seconds
 			talkedRecently.add(msg.author.id);
 			setTimeout(() => {
